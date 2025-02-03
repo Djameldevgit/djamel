@@ -1,0 +1,16 @@
+.linea-content-box {
+    width: 100%; /* Hace que ocupe todo el ancho disponible */
+    height: 5px; /* Altura de la línea */
+    background-color: rgb(77, 13, 253); /* Color de fondo */
+    padding: 5px; /* Espacio interno */
+    box-sizing: content-box; /* El tamaño total incluye solo el contenido */
+}
+
+.linea-border-box {
+    width: 100%; /* Hace que ocupe todo el ancho disponible */
+    height: 5px; /* Altura de la línea */
+    background-color: rgb(77, 13, 253); /* Color de fondo */
+    padding: 5px; /* Espacio interno */
+    border: 2px solid black; /* Borde de la línea */
+    box-sizing: border-box; /* El tamaño total incluye el borde y el padding */
+}
