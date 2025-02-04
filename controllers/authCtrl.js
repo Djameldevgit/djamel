@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken')
 const authCtrl = {
     register: async (req, res) => {
         try {
-            const { fullname, username, email, password, gender } = req.body
+            const {  username, email, password  } = req.body
             let newUserName = username.toLowerCase().replace(/ /g, '')
 
             const user_name = await Users.findOne({username: newUserName})
@@ -20,7 +20,7 @@ const authCtrl = {
             const passwordHash = await bcrypt.hash(password, 12)
 
             const newUser = new Users({
-                fullname, username: newUserName, email, password: passwordHash, gender
+                username: newUserName, email, password: passwordHash 
             })
 
 
@@ -52,7 +52,7 @@ const authCtrl = {
             const { email, password } = req.body
 
             const user = await Users.findOne({email})
-            .populate("followers following", "avatar username fullname followers following")
+            .populate("followers following", "avatar username followers following")
 
             if(!user) return res.status(400).json({msg: "This email does not exist."})
 
@@ -97,7 +97,7 @@ const authCtrl = {
                 if(err) return res.status(400).json({msg: "Please login now."})
 
                 const user = await Users.findById(result.id).select("-password")
-                .populate('followers following', 'avatar username fullname followers following')
+                .populate('followers following', 'avatar username followers following')
 
                 if(!user) return res.status(400).json({msg: "This does not exist."})
 

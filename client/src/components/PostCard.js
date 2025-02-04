@@ -6,6 +6,7 @@ import CardFooter from './home/post_card/CardFooter'
 import Comments from './home/Comments'
 import InputComment from './home/InputComment'
 
+
 const PostCard = ({post, theme}) => {
     return (
         <div className="card my-3"> 
